@@ -43,6 +43,13 @@ namespace patientportalapi.Controllers
         {
             return objpt.usersignup(resultinfo);
         }
+        [HttpPost]
+        [Route("api/newaddress")]
+        [AllowAnonymous]
+        public int newaddress(updateadress resultinfo)
+        {
+            return objpt.newaddress(resultinfo);
+        }
 
         [HttpPost]
         [Route("api/Bookorder")]

@@ -41,7 +41,12 @@ namespace patientportalapi.Models
         public string testcode { get; set; }
         public string price { get; set; }
     }
-
+    public class updateadress
+    {
+        public string username { get; set; }
+        public string address { get; set; }
+        public string city { get; set; }
+    }
 
 
     /// ////////////////////////////////////////////////////////////////////////////////

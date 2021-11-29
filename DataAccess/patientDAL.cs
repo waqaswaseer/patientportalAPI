@@ -89,6 +89,29 @@ namespace patientportalapi.DataAccess
                 throw;
             }
         }
+        public int newaddress(updateadress sdata)
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+                string query = string.Empty;
+                int userID = getuserID(sdata.username);
+                query = "update userSignup set uaddres = '"+ sdata.address +","+ sdata.city +"'  where userID = " + userID;
+                if (exeQuery_(query))
+                {
+                    return 1;
+                }
+                else
+                {
+                    return 0;
+                }
+
+            }
+            catch
+            {
+                throw;
+            }
+        }
         public IEnumerable<signup> UserProfileData(string name)
         {
             List<signup> lstvisit = new List<signup>();
@@ -130,6 +153,7 @@ namespace patientportalapi.DataAccess
                 else
                 {              
                     int maxId = maxID("bookedorders", "orderid") + 1;
+
                     int getuserid = getuserID(sdata.username);
                     query = "insert into bookedorders (orderid, timedate, userID, orderstatus) values ("+ maxId + ", getdate() ,"+ getuserid + " , 'p')";
                     if (exeQuery_(query))
